@@ -1,0 +1,52 @@
+[project]
+name = "cloudmetry"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    "common",
+    "queue_worker",
+    "processing_worker",
+    "car_simulator"
+]
+
+[tool.uv.workspace]
+members = ["common", "queue_worker", "processing_worker", "car_simulator"]
+
+[tool.uv.sources]
+queue_worker = { workspace = true }
+processing_worker = { workspace = true }
+car_simulator = { workspace = true }
+common = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.38.2",
+    "pyinstaller>=6.21.0",
+    "ruff>=0.15.5",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E","W","F","I","B","UP","S","PT","T20","N"
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.per-file-ignores]
+"**/*.py" = ["B008"]
+
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+include = ["common", "queue_worker", "processing_worker", "car_simulator"]
+exclude = ["**/__pycache__", "**/.*",]

@@ -1,0 +1,12 @@
+1791306902: mosquitto version 2.1.2 starting
+1791306902: Config loaded from /mosquitto/config/mosquitto.conf.
+1791306902: Bridge support available.
+1791306902: Persistence support available.
+1791306902: TLS support available.
+1791306902: TLS-PSK support available.
+1791306902: Websockets support available.
+1791306902: Opening ipv4 listen socket on port 1883.
+1791306902: Opening ipv4 listen socket on port 9001.
+1791306902: mosquitto version 2.1.2 running
+1791306919: mosquitto version 2.1.2 terminating
+1791306919: Saving in-memory database to /mosquitto/data//mosquitto.db.

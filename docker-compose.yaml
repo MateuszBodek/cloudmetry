@@ -1,0 +1,27 @@
+services:
+    mqtt:
+        image: eclipse-mosquitto:2
+        container_name: cloudmetry_mqtt_dev
+        ports:
+            - "1883:1883"
+            - "9001:9001"
+        volumes:
+            - ./mosquitto/data:/mosquitto/data
+            - ./mosquitto/log:/mosquitto/log
+            - ./mosquitto/config_dev:/mosquitto/config
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
+    mqttx-web:
+        image: emqx/mqttx-web:latest
+        container_name: cloudmetry_mqttx-web
+        ports:
+            - "8080:80"
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
+networks:
+    cloudmetry-network:
+        driver: bridge
