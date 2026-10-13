@@ -10,7 +10,8 @@ authors = [
 ]
 
 dependencies = [
-    "common"
+    "common",
+    "paho-mqtt>=2.1.0",
 ]
 
 [build-system]
