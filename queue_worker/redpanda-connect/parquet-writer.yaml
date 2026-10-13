@@ -1,0 +1,51 @@
+input:
+  kafka_franz:
+    seed_brokers:
+      - redpanda:9092
+    topics:
+      - vehicle-telemetry
+    consumer_group: vehicle-telemetry-parquet-writer
+    start_offset: earliest
+
+output:
+  aws_s3:
+    bucket: bronze
+    path: 'bronze/${! timestamp_unix() }-${! uuid_v4() }.parquet'
+    content_type: application/vnd.apache.parquet
+    endpoint: http://seaweedfs:8333
+    force_path_style_urls: true
+    region: us-east-1
+    credentials:
+      id: cloudmetry-local-access
+      secret: cloudmetry-local-secret-key-change-this
+    batching:
+      count: 500
+      period: 10s
+      processors:
+        - mapping: |
+            root = {
+              "vehicle_id": this.vehicle_id,
+              "drive_id": this.drive_id,
+              "stream": this.stream,
+              "source_time_s": this.source_time_s,
+              "sampled_at": this.sampled_at,
+              "generated_at": this.generated_at,
+              "data_json": this.data.format_json()
+            }
+        - parquet_encode:
+            schema:
+              - name: vehicle_id
+                type: UTF8
+              - name: drive_id
+                type: UTF8
+              - name: stream
+                type: UTF8
+              - name: source_time_s
+                type: DOUBLE
+              - name: sampled_at
+                type: UTF8
+              - name: generated_at
+                type: UTF8
+              - name: data_json
+                type: UTF8
+            default_compression: zstd

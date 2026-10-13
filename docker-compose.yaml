@@ -13,6 +13,124 @@ services:
         networks:
             - cloudmetry-network
 
+    redpanda:
+        image: redpandadata/redpanda:v26.2.4
+        container_name: cloudmetry_redpanda_dev
+        command:
+            - redpanda
+            - start
+            - --overprovisioned
+            - --smp
+            - "1"
+            - --memory
+            - 1G
+            - --reserve-memory
+            - 0M
+            - --node-id
+            - "0"
+            - --check=false
+            - --kafka-addr
+            - 0.0.0.0:9092
+            - --advertise-kafka-addr
+            - redpanda:9092
+        ports:
+            - "9092:9092"
+        volumes:
+            - redpanda-data:/var/lib/redpanda/data
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
+    redpanda-init:
+        image: redpandadata/redpanda:v26.2.4
+        container_name: cloudmetry_redpanda_init
+        entrypoint: ["/bin/sh", "-c"]
+        command:
+            - >-
+                until rpk -X brokers=redpanda:9092 topic create vehicle-telemetry --partitions=12 --replicas=1 --if-not-exists; do sleep 2; done
+        depends_on:
+            - redpanda
+        restart: "no"
+        networks:
+            - cloudmetry-network
+
+    redpanda-connect:
+        image: docker.redpanda.com/redpandadata/connect:latest
+        container_name: cloudmetry_redpanda_connect_dev
+        command:
+            - run
+            - /connect.yaml
+        ports:
+            - "4195:4195"
+        volumes:
+            - ./queue_worker/redpanda-connect/config.yaml:/connect.yaml:ro
+        depends_on:
+            mqtt:
+                condition: service_started
+            redpanda-init:
+                condition: service_completed_successfully
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
+    seaweedfs:
+        image: chrislusf/seaweedfs:4.16
+        container_name: cloudmetry_seaweedfs_dev
+        command:
+            - server
+            - -dir=/data
+            - -volume.max=0
+            - -filer
+            - -s3
+            - -s3.port=8333
+            - -s3.config=/etc/seaweedfs/s3.json
+            - -ip=seaweedfs
+            - -ip.bind=0.0.0.0
+        ports:
+            - "8333:8333"
+            - "8888:8888"
+        volumes:
+            - seaweedfs-data:/data
+            - ./queue_worker/redpanda-connect/seaweedfs-s3.json:/etc/seaweedfs/s3.json:ro
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
+    seaweedfs-init:
+        image: chrislusf/seaweedfs:4.16
+        container_name: cloudmetry_seaweedfs_init
+        entrypoint: ["/bin/sh", "-c"]
+        command:
+            - >-
+                while true; do
+                  output=$$(printf 's3.bucket.create -name bronze -owner cloudmetry\n' | weed shell -master=seaweedfs:9333 -filer=seaweedfs:8888 2>&1 || true);
+                  echo "$$output";
+                  echo "$$output" | grep -Eqi 'created bucket bronze|bucket bronze already exists' && exit 0;
+                  sleep 2;
+                done
+        depends_on:
+            - seaweedfs
+        restart: "no"
+        networks:
+            - cloudmetry-network
+
+    parquet-writer:
+        image: docker.redpanda.com/redpandadata/connect:latest
+        container_name: cloudmetry_parquet_writer_dev
+        command:
+            - run
+            - /parquet-writer.yaml
+        volumes:
+            - ./queue_worker/redpanda-connect/parquet-writer.yaml:/parquet-writer.yaml:ro
+        depends_on:
+            redpanda-init:
+                condition: service_completed_successfully
+            seaweedfs-init:
+                condition: service_completed_successfully
+        restart: unless-stopped
+        networks:
+            - cloudmetry-network
+
     mqttx-web:
         image: emqx/mqttx-web:latest
         container_name: cloudmetry_mqttx-web
@@ -25,3 +143,7 @@ services:
 networks:
     cloudmetry-network:
         driver: bridge
+
+volumes:
+    redpanda-data:
+    seaweedfs-data:

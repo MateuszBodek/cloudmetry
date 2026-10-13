@@ -10,3 +10,217 @@
 1791306902: mosquitto version 2.1.2 running
 1791306919: mosquitto version 2.1.2 terminating
 1791306919: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791409036: mosquitto version 2.1.2 starting
+1791409036: Config loaded from /mosquitto/config/mosquitto.conf.
+1791409036: Bridge support available.
+1791409036: Persistence support available.
+1791409036: TLS support available.
+1791409036: TLS-PSK support available.
+1791409036: Websockets support available.
+1791409036: Opening ipv4 listen socket on port 1883.
+1791409036: Opening ipv4 listen socket on port 9001.
+1791409036: mosquitto version 2.1.2 running
+1791409177: New connection from 127.0.0.1:48492 on port 1883.
+1791409177: New client connected from 127.0.0.1:48492 as auto-12A82CF0-5209-ED65-101D-E8B167AC993C (p4, c1, k60).
+1791409295: New connection from 172.18.0.1:32920 on port 1883.
+1791409295: New client connected from 172.18.0.1:32920 as auto-8E6907E2-8B0F-5097-0035-98B3F0B96C9F (p4, c1, k60).
+1791409450: Client auto-8E6907E2-8B0F-5097-0035-98B3F0B96C9F [172.18.0.1:32920] disconnected.
+1791409707: mosquitto version 2.1.2 terminating
+1791409707: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791409710: mosquitto version 2.1.2 starting
+1791409710: Config loaded from /mosquitto/config/mosquitto.conf.
+1791409710: Bridge support available.
+1791409710: Persistence support available.
+1791409710: TLS support available.
+1791409710: TLS-PSK support available.
+1791409710: Websockets support available.
+1791409710: Opening ipv4 listen socket on port 1883.
+1791409710: Opening ipv4 listen socket on port 9001.
+1791409710: mosquitto version 2.1.2 running
+1791409713: mosquitto version 2.1.2 terminating
+1791409713: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791495681: mosquitto version 2.1.2 starting
+1791495681: Config loaded from /mosquitto/config/mosquitto.conf.
+1791495681: Bridge support available.
+1791495681: Persistence support available.
+1791495681: TLS support available.
+1791495681: TLS-PSK support available.
+1791495681: Websockets support available.
+1791495681: Opening ipv4 listen socket on port 1883.
+1791495681: Opening ipv4 listen socket on port 9001.
+1791495681: mosquitto version 2.1.2 running
+1791495685: New connection from 127.0.0.1:39208 on port 1883.
+1791495685: New client connected from 127.0.0.1:39208 as auto-9C89B8E1-4D8E-D254-0839-18C17B99B20A (p4, c1, k60).
+1791495705: New connection from 172.18.0.1:37878 on port 1883.
+1791495705: New client connected from 172.18.0.1:37878 as auto-429EBA8D-A11F-DF39-56A8-6ED94935C9DF (p4, c1, k60).
+1791495717: Client auto-429EBA8D-A11F-DF39-56A8-6ED94935C9DF [172.18.0.1:37878] disconnected.
+1791495721: Client auto-9C89B8E1-4D8E-D254-0839-18C17B99B20A [127.0.0.1:39208] disconnected.
+1791495732: mosquitto version 2.1.2 terminating
+1791495732: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791663077: mosquitto version 2.1.2 starting
+1791663077: Config loaded from /mosquitto/config/mosquitto.conf.
+1791663077: Bridge support available.
+1791663077: Persistence support available.
+1791663077: TLS support available.
+1791663077: TLS-PSK support available.
+1791663077: Websockets support available.
+1791663077: Opening ipv4 listen socket on port 1883.
+1791663077: Opening ipv4 listen socket on port 9001.
+1791663077: mosquitto version 2.1.2 running
+1791663593: New connection from 172.18.0.5:35464 on port 1883.
+1791663593: New client connected from 172.18.0.5:35464 as cloudmetry-redpanda-connect (p4, c0, k30).
+1791663599: New connection from 127.0.0.1:49412 on port 1883.
+1791663599: New client connected from 127.0.0.1:49412 as auto-F17D701D-78C1-E2C3-2283-41362E0301B4 (p4, c1, k60).
+1791663599: Client auto-F17D701D-78C1-E2C3-2283-41362E0301B4 [127.0.0.1:49412] disconnected: connection closed by client.
+1791663673: New connection from 127.0.0.1:34642 on port 1883.
+1791663673: New client connected from 127.0.0.1:34642 as auto-64F21054-1BEC-33CB-060C-C30C6B70D0FA (p4, c1, k60).
+1791663673: Client auto-64F21054-1BEC-33CB-060C-C30C6B70D0FA [127.0.0.1:34642] disconnected: connection closed by client.
+1791663710: New connection from 127.0.0.1:43298 on port 1883.
+1791663710: New client connected from 127.0.0.1:43298 as auto-ED0A4C35-3A5C-AEBD-08C4-D8D282B03327 (p4, c1, k60).
+1791663712: Client auto-ED0A4C35-3A5C-AEBD-08C4-D8D282B03327 [127.0.0.1:43298] disconnected.
+1791663768: New connection from 127.0.0.1:49404 on port 1883.
+1791663768: New client connected from 127.0.0.1:49404 as auto-662E72E8-85E0-8267-9E90-E32872717AA8 (p4, c1, k60).
+1791663768: Client auto-662E72E8-85E0-8267-9E90-E32872717AA8 [127.0.0.1:49404] disconnected: connection closed by client.
+1791663818: Client cloudmetry-redpanda-connect [172.18.0.5:35464] disconnected.
+1791663823: New connection from 172.18.0.5:33530 on port 1883.
+1791663823: New client connected from 172.18.0.5:33530 as cloudmetry-redpanda-connect-dev (p4, c0, k30).
+1791663832: New connection from 127.0.0.1:52088 on port 1883.
+1791663832: New client connected from 127.0.0.1:52088 as auto-35B97D97-320B-EF23-81B4-B48640A03FBA (p4, c1, k60).
+1791663832: Client auto-35B97D97-320B-EF23-81B4-B48640A03FBA [127.0.0.1:52088] disconnected: connection closed by client.
+1791663861: New connection from 127.0.0.1:41546 on port 1883.
+1791663861: New client connected from 127.0.0.1:41546 as auto-64B6DD8E-814D-B491-AE97-DEDB13D87294 (p4, c1, k60).
+1791663861: Client auto-64B6DD8E-814D-B491-AE97-DEDB13D87294 [127.0.0.1:41546] disconnected: connection closed by client.
+1791663862: New connection from 127.0.0.1:41562 on port 1883.
+1791663862: New client connected from 127.0.0.1:41562 as auto-BC05230C-F63F-15ED-C741-73F0991C124B (p4, c1, k60).
+1791663862: Client auto-BC05230C-F63F-15ED-C741-73F0991C124B [127.0.0.1:41562] disconnected.
+1791663862: New connection from 127.0.0.1:41568 on port 1883.
+1791663862: New client connected from 127.0.0.1:41568 as auto-C944B63A-4912-9B74-A880-99ECFCD07189 (p4, c1, k60).
+1791663862: Client auto-C944B63A-4912-9B74-A880-99ECFCD07189 [127.0.0.1:41568] disconnected: connection closed by client.
+1791663886: Client cloudmetry-redpanda-connect-dev [172.18.0.5:33530] disconnected: connection closed by client.
+1791663888: New connection from 172.18.0.5:45270 on port 1883.
+1791663888: New client connected from 172.18.0.5:45270 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791663901: New connection from 127.0.0.1:42110 on port 1883.
+1791663901: New client connected from 127.0.0.1:42110 as auto-A9797FA7-770D-3B47-7AE3-BE0DFC5E8F6D (p4, c1, k60).
+1791663901: Client auto-A9797FA7-770D-3B47-7AE3-BE0DFC5E8F6D [127.0.0.1:42110] disconnected: connection closed by client.
+1791664878: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791665286: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.5:45270] disconnected: connection closed by client.
+1791665287: mosquitto version 2.1.2 terminating
+1791665287: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791665981: mosquitto version 2.1.2 starting
+1791665981: Config loaded from /mosquitto/config/mosquitto.conf.
+1791665981: Bridge support available.
+1791665981: Persistence support available.
+1791665981: TLS support available.
+1791665981: TLS-PSK support available.
+1791665981: Websockets support available.
+1791665981: Opening ipv4 listen socket on port 1883.
+1791665981: Opening ipv4 listen socket on port 9001.
+1791665981: mosquitto version 2.1.2 running
+1791665986: New connection from 172.18.0.6:49502 on port 1883.
+1791665986: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1791665986: New client connected from 172.18.0.6:49502 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791667781: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791667830: New connection from 127.0.0.1:49926 on port 1883.
+1791667830: New client connected from 127.0.0.1:49926 as auto-6CCAC66F-0446-B013-DA06-41F94B1E32C0 (p4, c1, k60).
+1791667830: Client auto-6CCAC66F-0446-B013-DA06-41F94B1E32C0 [127.0.0.1:49926] disconnected: connection closed by client.
+1791667927: New connection from 127.0.0.1:48778 on port 1883.
+1791667927: New client connected from 127.0.0.1:48778 as auto-71D26945-6005-D81C-BB60-751C732A115B (p4, c1, k60).
+1791667927: Client auto-71D26945-6005-D81C-BB60-751C732A115B [127.0.0.1:48778] disconnected: connection closed by client.
+1791668019: New connection from 127.0.0.1:55588 on port 1883.
+1791668019: New client connected from 127.0.0.1:55588 as auto-2A8BE8FD-DB08-7394-5A18-7EA84056B834 (p4, c1, k60).
+1791668019: Client auto-2A8BE8FD-DB08-7394-5A18-7EA84056B834 [127.0.0.1:55588] disconnected: connection closed by client.
+1791669582: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791671383: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791673183: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791674419: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.6:49502] disconnected: connection closed by client.
+1791674420: mosquitto version 2.1.2 terminating
+1791674420: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791921879: mosquitto version 2.1.2 starting
+1791921879: Config loaded from /mosquitto/config/mosquitto.conf.
+1791921879: Bridge support available.
+1791921879: Persistence support available.
+1791921879: TLS support available.
+1791921879: TLS-PSK support available.
+1791921879: Websockets support available.
+1791921879: Opening ipv4 listen socket on port 1883.
+1791921879: Opening ipv4 listen socket on port 9001.
+1791921879: mosquitto version 2.1.2 running
+1791921885: New connection from 172.18.0.7:46902 on port 1883.
+1791921885: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1791921885: New client connected from 172.18.0.7:46902 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791921917: New connection from 172.18.0.1:33518 on port 1883.
+1791921917: New client connected from 172.18.0.1:33518 as auto-FF8D03AF-3665-874E-494C-6DD08EF32A3B (p4, c1, k60).
+1791921983: Outgoing messages are being dropped for client cloudmetry-redpanda-connect.
+1791921983: Outgoing messages are being dropped for client cloudmetry-redpanda-connect-dev.
+1791922028: Client auto-FF8D03AF-3665-874E-494C-6DD08EF32A3B [172.18.0.1:33518] disconnected: connection closed by client.
+1791922044: New connection from 172.18.0.1:51162 on port 1883.
+1791922044: New client connected from 172.18.0.1:51162 as auto-45471AD6-A104-E3A2-58A3-B3269D423145 (p4, c1, k60).
+1791922162: Client auto-45471AD6-A104-E3A2-58A3-B3269D423145 [172.18.0.1:51162] disconnected: connection closed by client.
+1791923067: New connection from 172.18.0.1:40668 on port 1883.
+1791923067: New client connected from 172.18.0.1:40668 as auto-02A4ACE7-EFCD-02F6-D2D1-BEB7CE5DC409 (p4, c1, k30).
+1791923068: Client auto-02A4ACE7-EFCD-02F6-D2D1-BEB7CE5DC409 [172.18.0.1:40668] disconnected.
+1791923679: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791923734: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.7:46902] disconnected: connection closed by client.
+1791923738: New connection from 172.18.0.7:41574 on port 1883.
+1791923738: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.7:46902] disconnected: session taken over.
+1791923738: New client connected from 172.18.0.7:41574 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791923774: New connection from 172.18.0.1:49732 on port 1883.
+1791923774: New client connected from 172.18.0.1:49732 as auto-28A617F2-5176-98CE-5C50-05A8D3DC54A9 (p4, c1, k30).
+1791923775: Client auto-28A617F2-5176-98CE-5C50-05A8D3DC54A9 [172.18.0.1:49732] disconnected.
+1791924680: New connection from 172.18.0.1:36042 on port 1883.
+1791924680: New client connected from 172.18.0.1:36042 as auto-53BB8376-0C32-D379-4F56-06E3D2089D81 (p4, c1, k30).
+1791924681: Client auto-53BB8376-0C32-D379-4F56-06E3D2089D81 [172.18.0.1:36042] disconnected.
+1791925289: New connection from 172.18.0.1:60224 on port 1883.
+1791925289: New client connected from 172.18.0.1:60224 as auto-B6950861-A55E-81C0-E72D-ECC09C6D858C (p4, c1, k60).
+1791925306: Client auto-B6950861-A55E-81C0-E72D-ECC09C6D858C [172.18.0.1:60224] disconnected.
+1791925480: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791925629: New connection from 172.18.0.1:59408 on port 1883.
+1791925629: New client connected from 172.18.0.1:59408 as auto-AE7B52B4-883A-87DD-BC76-22987E767A3F (p4, c1, k60).
+1791925640: Client auto-AE7B52B4-883A-87DD-BC76-22987E767A3F [172.18.0.1:59408] disconnected.
+1791925703: New connection from 172.18.0.1:56196 on port 1883.
+1791925703: New client connected from 172.18.0.1:56196 as auto-41A27ECC-9F47-701A-1C12-9F8C4FEDA2C9 (p4, c1, k60).
+1791925722: Client auto-41A27ECC-9F47-701A-1C12-9F8C4FEDA2C9 [172.18.0.1:56196] disconnected.
+1791925747: mosquitto version 2.1.2 terminating
+1791925747: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791925750: mosquitto version 2.1.2 starting
+1791925750: Config loaded from /mosquitto/config/mosquitto.conf.
+1791925750: Bridge support available.
+1791925750: Persistence support available.
+1791925750: TLS support available.
+1791925750: TLS-PSK support available.
+1791925750: Websockets support available.
+1791925750: Opening ipv4 listen socket on port 1883.
+1791925750: Opening ipv4 listen socket on port 9001.
+1791925750: mosquitto version 2.1.2 running
+1791925753: New connection from 172.18.0.7:35942 on port 1883.
+1791925753: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1791925753: New client connected from 172.18.0.7:35942 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791925806: New connection from 172.18.0.1:49422 on port 1883.
+1791925806: New client connected from 172.18.0.1:49422 as auto-BD9E6311-8E26-1AAE-9544-87C1DFF3920C (p4, c1, k60).
+1791925806: Outgoing messages are being dropped for client cloudmetry-redpanda-connect.
+1791925806: Outgoing messages are being dropped for client cloudmetry-redpanda-connect-dev.
+1791925832: Client auto-BD9E6311-8E26-1AAE-9544-87C1DFF3920C [172.18.0.1:49422] disconnected.
+1791926151: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.7:35942] disconnected: connection closed by client.
+1791926152: mosquitto version 2.1.2 terminating
+1791926152: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1791926183: mosquitto version 2.1.2 starting
+1791926183: Config loaded from /mosquitto/config/mosquitto.conf.
+1791926183: Bridge support available.
+1791926183: Persistence support available.
+1791926183: TLS support available.
+1791926183: TLS-PSK support available.
+1791926183: Websockets support available.
+1791926183: Opening ipv4 listen socket on port 1883.
+1791926183: Opening ipv4 listen socket on port 9001.
+1791926183: mosquitto version 2.1.2 running
+1791926187: New connection from 172.18.0.6:51932 on port 1883.
+1791926187: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1791926187: New client connected from 172.18.0.6:51932 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1791926193: New connection from 172.18.0.1:53286 on port 1883.
+1791926193: New client connected from 172.18.0.1:53286 as auto-836230D0-DE34-4C64-B4D3-0480BDA13215 (p4, c1, k60).
+1791926193: Outgoing messages are being dropped for client cloudmetry-redpanda-connect.
+1791926193: Outgoing messages are being dropped for client cloudmetry-redpanda-connect-dev.
+1791926211: Client auto-836230D0-DE34-4C64-B4D3-0480BDA13215 [172.18.0.1:53286] disconnected.
+1791926230: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.6:51932] disconnected: connection closed by client.
+1791926231: mosquitto version 2.1.2 terminating
+1791926231: Saving in-memory database to /mosquitto/data//mosquitto.db.

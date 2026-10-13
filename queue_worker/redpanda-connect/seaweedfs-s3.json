@@ -1,0 +1,20 @@
+{
+  "identities": [
+    {
+      "name": "cloudmetry",
+      "credentials": [
+        {
+          "accessKey": "cloudmetry-local-access",
+          "secretKey": "cloudmetry-local-secret-key-change-this"
+        }
+      ],
+      "actions": [
+        "Admin",
+        "Read",
+        "List",
+        "Tagging",
+        "Write"
+      ]
+    }
+  ]
+}
