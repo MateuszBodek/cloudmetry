@@ -103,9 +103,12 @@ services:
         command:
             - >-
                 while true; do
-                  output=$$(printf 's3.bucket.create -name bronze -owner cloudmetry\n' | weed shell -master=seaweedfs:9333 -filer=seaweedfs:8888 2>&1 || true);
+                  output=$$(printf 's3.bucket.create -name bronze -owner cloudmetry\ns3.bucket.create -name silver -owner cloudmetry\ns3.bucket.create -name gold -owner cloudmetry\n' | weed shell -master=seaweedfs:9333 -filer=seaweedfs:8888 2>&1 || true);
                   echo "$$output";
-                  echo "$$output" | grep -Eqi 'created bucket bronze|bucket bronze already exists' && exit 0;
+                  echo "$$output" | grep -Eqi 'created bucket bronze|bucket bronze already exists' &&
+                  echo "$$output" | grep -Eqi 'created bucket silver|bucket silver already exists' &&
+                  echo "$$output" | grep -Eqi 'created bucket gold|bucket gold already exists' &&
+                  exit 0;
                   sleep 2;
                 done
         depends_on:

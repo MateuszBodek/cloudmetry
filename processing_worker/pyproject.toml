@@ -11,6 +11,13 @@ authors = [
 
 dependencies = [
     "common",
+    "dbt-duckdb>=1.9,<2",
+    "deltalake>=1.0,<2",
+    "duckdb>=1.2,<2",
+    "pandas>=2.2",
+    "pyarrow>=19",
+    "requests>=2.32",
+    "urllib3>=2.2",
 ]
 
 [tool.uv.sources]

@@ -10,7 +10,7 @@ input:
 output:
   aws_s3:
     bucket: bronze
-    path: 'bronze/${! timestamp_unix() }-${! uuid_v4() }.parquet'
+    path: 'telemetry/${! timestamp_unix() }-${! uuid_v4() }.parquet'
     content_type: application/vnd.apache.parquet
     endpoint: http://seaweedfs:8333
     force_path_style_urls: true
@@ -19,8 +19,8 @@ output:
       id: cloudmetry-local-access
       secret: cloudmetry-local-secret-key-change-this
     batching:
-      count: 500
-      period: 10s
+      count: 5000
+      period: 30s
       processors:
         - mapping: |
             root = {

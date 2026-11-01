@@ -1,0 +1,255 @@
+version: 2
+
+models:
+  - name: gold_drive_telemetry
+    description: High-frequency, accelerometer-grain sensor-fusion OBT.
+    columns:
+      - name: vehicle_id
+        tests:
+          - not_null
+      - name: drive_id
+        tests:
+          - not_null
+      - name: source_time_s
+        tests:
+          - not_null
+      - name: telemetry_sample_age_ms
+        description: Milliseconds between the accelerometer sample and matched telemetry sample.
+      - name: is_telemetry_fresh
+        description: True when the matched telemetry sample is no more than 500 ms old.
+      - name: gps_sample_age_ms
+        description: Milliseconds between the accelerometer sample and matched GPS sample.
+      - name: is_gps_fresh
+        description: True when the matched GPS sample is no more than 2000 ms old.
+      - name: weather_sample_age_seconds
+        description: Seconds between the accelerometer sample and matched weather hour.
+      - name: is_weather_fresh
+        description: True when the matched weather hour is no more than 1800 seconds old.
+      - name: effective_speed_kmh
+        description: Per-drive speed fusion using fresh GPS speed with ECU fallback.
+      - name: x_g
+        description: Longitudinal IMU acceleration after stationary-offset calibration, spike rejection, smoothing, and sign alignment.
+      - name: y_g
+        description: Lateral IMU acceleration after stationary-offset calibration, spike rejection, and smoothing.
+      - name: dt_s
+        description: Sample interval clamped to 0.001-1.0 seconds, with a 0.02-second fallback.
+      - name: effective_longitudinal_accel_g
+        description: Speed-derived acceleration where available, otherwise longitudinal IMU acceleration.
+      - name: ambient_air_density_kg_m3
+        description: Ambient density using nonzero ECU or weather pressure and weather or fallback intake temperature.
+      - name: is_active_engine_window
+        description: True at 650 RPM or higher, more than 2 seconds after the first running sample and more than 1 second before the last running sample.
+      - name: oil_pressure_per_1k_rpm_bar
+        description: Oil pressure converted from kPa to bar and normalized per 1000 RPM for valid active-engine samples.
+      - name: min_safe_oil_pressure_target_bar
+        description: RPM-dependent turbo-engine oil-pressure floor from 1.00 bar at 900 RPM to 3.20 bar at 4000 RPM.
+      - name: oil_pressure_safety_margin_bar
+        description: Measured oil pressure in bar minus the RPM-dependent minimum pressure target.
+      - name: is_low_oil_pressure_for_rpm
+        description: True when valid active-engine oil pressure is below the RPM-dependent minimum.
+      - name: cumulative_drive_distance_km
+        description: Integrated distance from the accelerometer sample sequence.
+      - name: is_clean_wot_pull
+        description: Clean wide-open-throttle acceleration sample passing the configured cut filters.
+
+  - name: fct_drive_summary
+    description: One row per drive containing engineering metrics and dimension keys.
+    columns:
+      - name: drive_id
+        tests:
+          - not_null
+          - unique
+      - name: drive_meta_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_drive_meta')
+                field: drive_meta_key
+      - name: weather_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_weather_conditions')
+                field: weather_key
+      - name: fuel_profile_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_fuel_profile')
+                field: fuel_profile_key
+      - name: thermal_profile_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_thermal_profile')
+                field: thermal_profile_key
+      - name: first_warning_code_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_rusefi_error_code')
+                field: error_code_key
+      - name: last_warning_code_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_rusefi_error_code')
+                field: error_code_key
+      - name: error_codes
+        description: Sorted distinct positive rusEFI warning, stop-engine, ignition-cut, and fuel-cut codes observed during the drive.
+      - name: wot_duration_seconds
+        description: Sum of clamped sample intervals for clean WOT samples.
+      - name: total_fuel_consumed_g
+        description: Fuel-counter delta in grams.
+      - name: total_fuel_consumed_l
+        description: Fuel-counter delta converted to liters using 750 grams per liter.
+      - name: avg_fuel_consumption_l_100km
+        description: Measured or integrated fuel volume per 100 kilometers.
+      - name: avg_fuel_flow_gps
+        description: Average rusEFI fuel flow in grams per second.
+      - name: avg_fuel_flow_lph
+        description: Average rusEFI fuel flow converted to liters per hour using 750 grams per liter.
+      - name: max_fuel_flow_gps
+        description: Maximum rusEFI fuel flow in grams per second.
+      - name: max_fuel_flow_lph
+        description: Maximum rusEFI fuel flow converted to liters per hour using 750 grams per liter.
+      - name: min_clt_c
+        description: Minimum valid coolant temperature above -35 C.
+      - name: avg_hot_clt_c
+        description: Average coolant temperature while above 87 C.
+      - name: min_oil_temp_c
+        description: Minimum valid oil temperature above -35 C.
+      - name: avg_hot_oil_temp_c
+        description: Average oil temperature while above 90 C.
+      - name: mat_thermal_rise_c
+        description: Intake-air temperature range while the engine is running at 500 RPM or higher.
+      - name: min_hot_oil_pressure_bar
+        description: Minimum positive oil pressure above 0.1 bar with hot oil and engine speed at least 650 RPM inside the active drive window.
+      - name: min_hot_load_oil_pressure_bar
+        description: Minimum positive oil pressure above 0.1 bar with hot oil and engine speed at least 3000 RPM inside the active drive window.
+      - name: min_hot_idle_oil_pressure_bar
+        description: Minimum positive oil pressure with oil temperature at least 80 C and engine speed from 650 through 1250 RPM inside the active drive window.
+      - name: min_oil_pressure_per_1k_rpm_bar
+        description: Minimum oil pressure per 1000 RPM from 1500 through 4000 RPM inside the active drive window.
+      - name: avg_oil_pressure_per_1k_rpm_bar
+        description: Average oil pressure per 1000 RPM from 1500 through 4000 RPM inside the active drive window.
+      - name: min_oil_pressure_safety_margin_bar
+        description: Minimum valid active-window oil pressure minus the RPM-dependent minimum pressure target.
+      - name: low_oil_pressure_samples_count
+        description: Count of active-window samples below the RPM-dependent pressure target.
+      - name: low_oil_pressure_duration_s
+        description: Sum of clamped sample intervals for samples below the RPM-dependent pressure target.
+      - name: oil_starvation_in_cornering_samples_count
+        description: Count of low-pressure samples with absolute lateral acceleration of at least 0.35 g.
+      - name: low_oil_pressure_damage_risk_flag
+        description: True when low-pressure samples total at least 0.15 seconds or occur at least three times.
+      - name: min_batt_v
+        description: Minimum battery voltage above 5 V while engine speed is at least 500 RPM.
+      - name: avg_batt_v
+        description: Average battery voltage above 5 V while engine speed is at least 500 RPM.
+      - name: ecu_speed_coverage_pct
+        description: Share of moving rows with ECU speed above 1 km/h; zero when the drive has no valid ECU speed.
+      - name: gps_speed_coverage_pct
+        description: Share of rows with fresh, non-null GPS speed.
+      - name: wot_imu_accel_index_g_per_bar
+        description: Average sign-aligned, filtered longitudinal IMU acceleration per bar during clean WOT samples.
+      - name: stop_engine_code_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_rusefi_error_code')
+                field: error_code_key
+      - name: dominant_ign_cut_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_rusefi_error_code')
+                field: error_code_key
+      - name: dominant_fuel_cut_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_rusefi_error_code')
+                field: error_code_key
+
+  - name: dim_rusefi_error_code
+    description: rusEFI warning, stop-engine, and cut code lookup dimension.
+    columns:
+      - name: error_code_key
+        tests:
+          - not_null
+          - unique
+      - name: raw_code_id
+        tests:
+          - not_null
+      - name: code_category
+        tests:
+          - not_null
+      - name: code_name
+        tests:
+          - not_null
+      - name: severity_level
+        tests:
+          - not_null
+
+  - name: dim_drive_meta
+    description: Drive identifiers, timestamps, trip category, and speed-sensor mode.
+    columns:
+      - name: drive_meta_key
+        tests:
+          - not_null
+          - unique
+      - name: drive_id
+        tests:
+          - not_null
+
+  - name: dim_weather_conditions
+    description: Per-drive ambient conditions and boost-weather classification.
+    columns:
+      - name: weather_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_fuel_profile
+    description: Per-drive fuel consumption, driving-style, and trim-health profile.
+    columns:
+      - name: fuel_profile_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_thermal_profile
+    description: Per-drive engine warmup, thermal completion, and oil-pressure profile.
+    columns:
+      - name: thermal_profile_key
+        tests:
+          - not_null
+          - unique
+
+seeds:
+  - name: rusefi_error_codes
+    description: rusEFI warning, stop-engine, and cut code dictionary.
+    columns:
+      - name: raw_code_id
+        tests:
+          - not_null
+          - unique
+      - name: code_category
+        tests:
+          - not_null
+      - name: code_name
+        tests:
+          - not_null
+      - name: severity_level
+        tests:
+          - not_null

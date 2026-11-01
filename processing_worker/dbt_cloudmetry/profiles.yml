@@ -1,0 +1,23 @@
+cloudmetry:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: ":memory:"
+      threads: "{{ env_var('DUCKDB_THREADS', '4') | int }}"
+      extensions:
+        - httpfs
+        - delta
+      secrets:
+        - type: s3
+          key_id: "{{ env_var('AWS_ACCESS_KEY_ID', 'cloudmetry-local-access') }}"
+          secret: "{{ env_var('AWS_SECRET_ACCESS_KEY', 'cloudmetry-local-secret-key-change-this') }}"
+          region: "{{ env_var('AWS_REGION', 'us-east-1') }}"
+          endpoint: "{{ env_var('S3_ENDPOINT', 'http://localhost:8333') | replace('https://', '') | replace('http://', '') }}"
+          url_style: path
+          use_ssl: false
+      module_paths:
+        - "{{ env_var('CLOUDMETRY_WORKSPACE_ROOT', '.') }}"
+      plugins:
+        - module: processing_worker.src.dbt_plugin
+          alias: delta_merge

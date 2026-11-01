@@ -1,13 +1,14 @@
 from pathlib import Path
 
-from src.emulator import TelemetryEmulator
 from common.src.logger import setup_logger
+from src.emulator import TelemetryEmulator
 
 
 def main() -> None:
     setup_logger("car_simulator")
 
-    csv_path = Path(__file__).resolve().parents[1] / "data" / "test_log.csv"
+    data_dir = Path(__file__).resolve().parents[1] / "data" / "2"
+    csv_path = data_dir / "test_log_2.csv"
     emulator = TelemetryEmulator(csv_path=str(csv_path))
 
     try:
@@ -15,6 +16,7 @@ def main() -> None:
     except KeyboardInterrupt:
         print("\nStop emulatora")
         emulator.stop_engine()
+
 
 if __name__ == "__main__":
     main()
