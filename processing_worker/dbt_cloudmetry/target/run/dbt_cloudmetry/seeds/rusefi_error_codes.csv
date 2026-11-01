@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "memory"."main"."rusefi_error_codes" ("raw_code_id" integer,"code_category" text,"code_name" text,"code_description_pl" text,"severity_level" text)
+  ;
+    -- dbt seed --
+    
+          COPY "memory"."main"."rusefi_error_codes" FROM 'C:\Users\matik\Desktop\CloudMetry\processing_worker\dbt_cloudmetry\seeds\rusefi_error_codes.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  

@@ -1,0 +1,78 @@
+# Time and synchronization
+Time
+Uptime
+
+# Primary engine and load
+RPM
+dRPM
+MAP
+Effective MAP
+baroPressure
+TPS
+dTPS
+Throttle pedal position
+
+# Temperatures and pressures
+CLT
+MAT
+oilTemp
+Oil Pressure
+Air: Charge temperature estimate
+ECU: CPU Temperature
+Batt V
+
+# Fueling and wideband O2
+AFR
+Lambda
+Fuel: target AFR
+Fuel: target lambda
+Fuel: VE
+Fuel: Last inj pulse width
+Fuel: injector duty cycle
+Fuel: Total correction
+EGO cor1
+STFT: Bank 1
+LTFT: Bank 1
+Fuel: Flow rate
+Fuel: Total consumed
+Fuel: TPS AE change
+Fuel: Load
+
+# Ignition and knock
+Ignition: load
+Ignition: coil charge time
+Ignition: coil duty cycle
+Ignition: overcharge canceled
+Ignition: overDwellNotScheduled
+Ignition: Dwell deviation
+Timing: ignition
+Timing: base ignition
+Knock: Current level
+Knock: Retard
+Knock: Count
+
+# Boost and turbo
+Boost: Target
+Boost: Output
+Wastegate position sensor
+
+# Vehicle dynamics and drivetrain
+Vehicle Speed
+Detected Gear
+
+# Critical diagnostics and cuts
+Trigger Error Counter
+rev limit active
+checkEngine
+stopEngineCode
+Warning: last
+Warning: counter
+Ign: Cut Code
+totalSparkCut
+Ignition: undecharge warnings
+Ignition: overcharge warnings
+Fuel: Cut Code
+totalFuelCut
+dfcoActive
+cpuUsagePercent
+Analog sensors supply failure

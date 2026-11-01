@@ -1,0 +1,23 @@
+raw_code_id,code_category,code_name,code_description_pl,severity_level
+0,ANY,NONE,Brak błędu / Praca normalna,OK
+1,CUT_REASON,OVER_REV,Odcięcie od przekroczenia obrotów (Rev Limiter),WARN
+2,CUT_REASON,BOOST_CUT,Odcięcie od przeładowania (Overboost Protection),CRITICAL
+3,CUT_REASON,OIL_PRESSURE,Odcięcie awaryjne od niskiego ciśnienia oleju,CRITICAL
+4,CUT_REASON,LAUNCH_CONTROL,Aktywna procedura startu (Launch Control),INFO
+5,CUT_REASON,FLAT_SHIFT,Odcięcie przy zmianie biegu bez odjęcia gazu (Flat Shift),INFO
+6,CUT_REASON,TRACTION_CONTROL,Ingerencja kontroli trakcji,INFO
+7,CUT_REASON,DFCO,Hamowanie silnikiem (Deceleration Fuel Cut-Off),OK
+8,CUT_REASON,ENGINE_PHASE_SYNC,Brak synchronizacji faz rozrządu / wału,CRITICAL
+101,WARNING,TRIGGER_ERROR,Błąd synchronizacji czujnika położenia wału/wałka (Trigger Error),CRITICAL
+102,WARNING,CLT_SENSOR_FAIL,Awaria lub poza zakresem czujnika temperatury płynu (CLT),WARN
+103,WARNING,IAT_SENSOR_FAIL,Awaria lub poza zakresem czujnika temperatury dolotu (MAT/IAT),WARN
+104,WARNING,TPS_SENSOR_FAIL,Błąd czujnika położenia przepustnicy (TPS),CRITICAL
+105,WARNING,MAP_SENSOR_FAIL,Błąd czujnika ciśnienia w kolektorze (MAP),CRITICAL
+106,WARNING,KNOCK_DETECTED,Wykryto spalanie stukowe powyżej progu bezpieczeństwa,WARN
+107,WARNING,LOW_OIL_PRESSURE,Niskie ciśnienie oleju względem obrotów i temperatury,CRITICAL
+108,WARNING,COIL_OVERCHARGE,Przeładowanie cewki zapłonowej (Overdwell / Overcharge),WARN
+109,WARNING,COIL_UNDERCHARGE,Niedoładowanie cewki zapłonowej (Undercharge),WARN
+110,WARNING,ANALOG_SUPPLY_FAIL,Awaria zasilania 5V czujników analogowych,CRITICAL
+111,WARNING,LEAN_UNDER_BOOST,Zbyt uboga mieszanka (AFR) pod doładowaniem,CRITICAL
+112,WARNING,INJECTOR_DUTY_HIGH,Krytyczne wysterowanie wtryskiwaczy (>90% DC),WARN
+999,ANY,OTHER_UNMAPPED_CODE,Inny kod diagnostyczny sterownika rusEFI,WARN

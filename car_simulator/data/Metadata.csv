@@ -1,0 +1,2 @@
+version,device name,recording epoch time,recording time,recording timezone,platform,appVersion,device id,sensors,sampleRateMs,standardisation,platform version
+3,SM-S906B,1792939324225,2026-10-25_14-42-04,Europe/Warsaw,android,1.68,3f35dcf1-d609-4c33-9b1e-530544d89bbc,Accelerometer|Location|Annotation|TotalAcceleration|AccelerometerUncalibrated,10|100||10|10,false,35
