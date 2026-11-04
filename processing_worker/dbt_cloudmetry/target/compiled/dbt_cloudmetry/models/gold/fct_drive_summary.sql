@@ -311,9 +311,9 @@ drive_metrics AS (
         AVG(effective_charge_density_kg_m3) FILTER (WHERE is_clean_wot_pull)
             AS wot_effective_charge_density_kg_m3,
         AVG(sae_correction_factor) AS sae_correction_factor,
-        AVG(effective_longitudinal_accel_g) FILTER (WHERE is_clean_wot_pull)
+        AVG(imu_longitudinal_accel_g) FILTER (WHERE is_clean_wot_pull)
             AS wot_raw_accel_avg_g,
-        MAX(effective_longitudinal_accel_g) FILTER (WHERE is_clean_wot_pull)
+        MAX(imu_longitudinal_accel_g) FILTER (WHERE is_clean_wot_pull)
             AS wot_raw_accel_max_g,
         AVG(instant_wot_accel_index_g_per_bar) FILTER (WHERE is_clean_wot_pull)
             AS wot_accel_index_g_per_bar,

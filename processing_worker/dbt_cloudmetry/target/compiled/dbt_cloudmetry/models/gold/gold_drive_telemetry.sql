@@ -647,11 +647,11 @@ derived AS (
 imu_offsets AS (
     SELECT
         *,
-        MEDIAN(accel_x_g) FILTER (
-            WHERE effective_speed_kmh < 1.0 AND ABS(accel_x_g) <= 1.8
-        ) OVER (PARTITION BY vehicle_id, drive_id) AS stationary_longitudinal_offset_g,
         MEDIAN(accel_y_g) FILTER (
             WHERE effective_speed_kmh < 1.0 AND ABS(accel_y_g) <= 1.8
+        ) OVER (PARTITION BY vehicle_id, drive_id) AS stationary_longitudinal_offset_g,
+        MEDIAN(accel_x_g) FILTER (
+            WHERE effective_speed_kmh < 1.0 AND ABS(accel_x_g) <= 1.8
         ) OVER (PARTITION BY vehicle_id, drive_id) AS stationary_lateral_offset_g
     FROM derived
 ),
@@ -659,12 +659,12 @@ imu_filtered AS (
     SELECT
         *,
         CASE
-            WHEN ABS(accel_x_g) <= 1.8
-                THEN accel_x_g - COALESCE(stationary_longitudinal_offset_g, 0.0)
+            WHEN ABS(accel_y_g) <= 1.8
+                THEN accel_y_g - COALESCE(stationary_longitudinal_offset_g, 0.0)
         END AS calibrated_longitudinal_accel_g,
         CASE
-            WHEN ABS(accel_y_g) <= 1.8
-                THEN accel_y_g - COALESCE(stationary_lateral_offset_g, 0.0)
+            WHEN ABS(accel_x_g) <= 1.8
+                THEN accel_x_g - COALESCE(stationary_lateral_offset_g, 0.0)
         END AS calibrated_lateral_accel_g
     FROM imu_offsets
 ),
@@ -837,7 +837,7 @@ final_metrics AS (
         *,
         CASE
             WHEN is_clean_wot_pull AND map > 0
-                THEN effective_longitudinal_accel_g / (map / 100.0)
+                THEN imu_longitudinal_accel_g / (map / 100.0)
         END AS instant_wot_accel_index_g_per_bar
     FROM oil_pressure_metrics
 )

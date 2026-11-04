@@ -41,6 +41,7 @@ def fetch_weather(
     weather_by_key: dict[
         tuple[float, float, datetime], tuple[Any, Any, Any, Any, Any]
     ] = {}
+    failed_requests: list[str] = []
     for location in locations.to_pylist():
         latitude = float(location["lat_grid"])
         longitude = float(location["lon_grid"])
@@ -74,8 +75,14 @@ def fetch_weather(
             params["start_date"] = start_date.isoformat()
             params["end_date"] = end_date.isoformat()
             url = WEATHER_URL
-        response = session.get(url, params=params, timeout=settings.weather_timeout)
-        response.raise_for_status()
+        try:
+            response = session.get(url, params=params, timeout=settings.weather_timeout)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            failed_requests.append(
+                f"{latitude},{longitude} {start_date}..{end_date}: {exc}"
+            )
+            continue
         body = response.json()
         hourly = body.get("hourly")
         if not isinstance(hourly, dict) or not isinstance(hourly.get("time"), list):
@@ -117,6 +124,18 @@ def fetch_weather(
                 relative_humidity[index],
                 wind_speeds[index],
             )
+
+    if failed_requests:
+        examples = "; ".join(failed_requests[:3])
+        omitted = len(failed_requests) - min(len(failed_requests), 3)
+        if omitted:
+            examples += f"; and {omitted} more"
+        LOGGER.warning(
+            "Open-Meteo request failed for %d location/date range(s); "
+            "continuing without weather for those ranges. Examples: %s",
+            len(failed_requests),
+            examples,
+        )
 
     keys = list(weather_by_key)
     return pa.table(

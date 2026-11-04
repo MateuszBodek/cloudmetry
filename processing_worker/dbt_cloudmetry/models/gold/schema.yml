@@ -28,9 +28,9 @@ models:
       - name: effective_speed_kmh
         description: Per-drive speed fusion using fresh GPS speed with ECU fallback.
       - name: x_g
-        description: Longitudinal IMU acceleration after stationary-offset calibration, spike rejection, smoothing, and sign alignment.
+        description: Longitudinal IMU acceleration from source y_g after stationary-offset calibration, spike rejection, smoothing, and sign alignment.
       - name: y_g
-        description: Lateral IMU acceleration after stationary-offset calibration, spike rejection, and smoothing.
+        description: Lateral IMU acceleration from source x_g after stationary-offset calibration, spike rejection, and smoothing.
       - name: dt_s
         description: Sample interval clamped to 0.001-1.0 seconds, with a 0.02-second fallback.
       - name: effective_longitudinal_accel_g
@@ -159,6 +159,14 @@ models:
         description: Share of rows with fresh, non-null GPS speed.
       - name: wot_imu_accel_index_g_per_bar
         description: Average sign-aligned, filtered longitudinal IMU acceleration per bar during clean WOT samples.
+      - name: wot_raw_accel_avg_g
+        description: Average sign-aligned, filtered longitudinal IMU acceleration during clean WOT samples.
+      - name: wot_raw_accel_max_g
+        description: Maximum sign-aligned, filtered longitudinal IMU acceleration during clean WOT samples.
+      - name: wot_accel_index_g_per_bar
+        description: Average sign-aligned, filtered longitudinal IMU acceleration per bar during clean WOT samples.
+      - name: wot_boost_weather_efficiency_score
+        description: IMU-derived longitudinal acceleration per bar, normalized by manifold charge density during clean WOT samples.
       - name: stop_engine_code_key
         tests:
           - not_null

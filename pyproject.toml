@@ -9,7 +9,11 @@ dependencies = [
     "common",
     "queue_worker",
     "processing_worker",
-    "car_simulator"
+    "car_simulator",
+    "duckdb>=1.2,<2",
+    "pandas>=2.2",
+    "plotly>=5.24",
+    "streamlit>=1.50",
 ]
 
 [tool.uv.workspace]
@@ -42,6 +46,7 @@ quote-style = "double"
 
 [tool.ruff.lint.per-file-ignores]
 "**/*.py" = ["B008"]
+"dashboard/tests/*.py" = ["PT009"]
 
 
 [tool.basedpyright]

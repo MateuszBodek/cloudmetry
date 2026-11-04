@@ -546,3 +546,44 @@
 1793567634: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.6:56074] disconnected: connection closed by client.
 1793567635: mosquitto version 2.1.2 terminating
 1793567635: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793615190: mosquitto version 2.1.2 starting
+1793615190: Config loaded from /mosquitto/config/mosquitto.conf.
+1793615190: Bridge support available.
+1793615190: Persistence support available.
+1793615190: TLS support available.
+1793615190: TLS-PSK support available.
+1793615190: Websockets support available.
+1793615190: Opening ipv4 listen socket on port 1883.
+1793615190: Opening ipv4 listen socket on port 9001.
+1793615190: mosquitto version 2.1.2 running
+1793615198: New connection from 172.18.0.5:54318 on port 1883.
+1793615198: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1793615198: New client connected from 172.18.0.5:54318 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1793616991: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793618791: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793620591: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793622390: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793624190: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793625991: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793627791: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793629592: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793631392: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793632724: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.5:54318] disconnected: connection closed by client.
+1793632725: mosquitto version 2.1.2 terminating
+1793632725: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1793738677: mosquitto version 2.1.2 starting
+1793738677: Config loaded from /mosquitto/config/mosquitto.conf.
+1793738677: Bridge support available.
+1793738677: Persistence support available.
+1793738677: TLS support available.
+1793738677: TLS-PSK support available.
+1793738677: Websockets support available.
+1793738677: Opening ipv4 listen socket on port 1883.
+1793738677: Opening ipv4 listen socket on port 9001.
+1793738677: mosquitto version 2.1.2 running
+1793738684: New connection from 172.18.0.7:43370 on port 1883.
+1793738684: Client cloudmetry-redpanda-connect-dev-2 [(null):0] disconnected: session taken over.
+1793738684: New client connected from 172.18.0.7:43370 as cloudmetry-redpanda-connect-dev-2 (p4, c0, k30).
+1793739042: Client cloudmetry-redpanda-connect-dev-2 [172.18.0.7:43370] disconnected: connection closed by client.
+1793739042: mosquitto version 2.1.2 terminating
+1793739042: Saving in-memory database to /mosquitto/data//mosquitto.db.
